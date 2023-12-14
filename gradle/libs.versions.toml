@@ -17,7 +17,8 @@ logging-interceptor = "4.9.1"
 kotlin-coroutines = "1.7.3"
 lifecycle = "2.2.0"
 koin = "3.4.3"
-
+navigation-compose = "2.7.5"
+coil = "2.2.0"
 
 [libraries]
 core-ktx = { group = "androidx.core", name = "core-ktx", version.ref = "core-ktx" }
@@ -51,6 +52,10 @@ lifecycle-livedata-ktx = { group = "androidx.lifecycle", name = "lifecycle-lived
 koin-core = { group = "io.insert-koin", name = "koin-core", version.ref = "koin" }
 koin-android = { group = "io.insert-koin", name = "koin-android", version.ref = "koin" }
 koin-android-viewmodel = { group = "io.insert-koin", name = "koin-android-viewmodel", version.ref = "koin" }
+koin-androidx-compose = { group = "io.insert-koin", name = "koin-androidx-compose", version.ref = "koin" }
+navigation-runtime-ktx = { group = "androidx.navigation", name = "navigation-runtime-ktx", version.ref = "navigation-compose" }
+navigation-compose = { group = "androidx.navigation", name = "navigation-compose", version.ref = "navigation-compose" }
+coil-compose = { group = "io.coil-kt", name = "coil-compose", version.ref = "coil" }
 
 [plugins]
 com-android-application = { id = "com.android.application", version.ref = "agp" }
@@ -65,4 +70,5 @@ org-jetbrains-kotlin-kapt = { id = "org.jetbrains.kotlin.kapt", version.ref = "o
 room = ["room-runtime","room-ktx"]
 network = ["retrofit","converter-gson","logging-interceptor"]
 coroutines = ["kotlinx-coroutines-core","kotlinx-coroutines-android"]
-koin = ["koin-core","koin-android"]
+koin = ["koin-core","koin-android", "koin-androidx-compose"]
+navigation = ["navigation-runtime-ktx","navigation-compose"]

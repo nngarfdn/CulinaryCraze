@@ -74,6 +74,8 @@ dependencies {
     implementation(libs.material3)
     implementation(libs.lifecycle.livedata.ktx)
     implementation(libs.bundles.koin)
+    implementation(libs.bundles.navigation)
+    implementation(libs.coil.compose)
     testImplementation(libs.junit)
     androidTestImplementation(libs.androidx.test.ext.junit)
     androidTestImplementation(libs.espresso.core)
