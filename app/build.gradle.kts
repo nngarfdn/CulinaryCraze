@@ -3,7 +3,6 @@ plugins {
     alias(libs.plugins.com.android.application)
     alias(libs.plugins.org.jetbrains.kotlin.android)
     alias(libs.plugins.org.jetbrains.kotlin.kapt)
-    alias(libs.plugins.com.google.dagger.hilt)
 }
 
 
@@ -73,10 +72,8 @@ dependencies {
     implementation(libs.ui.graphics)
     implementation(libs.ui.tooling.preview)
     implementation(libs.material3)
-
-    implementation(libs.hilt.android)
-    kapt(libs.hilt.compiler)
-
+    implementation(libs.lifecycle.livedata.ktx)
+    implementation(libs.bundles.koin)
     testImplementation(libs.junit)
     androidTestImplementation(libs.androidx.test.ext.junit)
     androidTestImplementation(libs.espresso.core)

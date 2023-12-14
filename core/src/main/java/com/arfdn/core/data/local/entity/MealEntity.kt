@@ -11,13 +11,13 @@ data class MealEntity(
     @PrimaryKey
     @NonNull
     @ColumnInfo(name = "idMeal")
-    val idMeal: String = "",
+    var idMeal: String = "",
 
     @ColumnInfo(name = "strMeal")
-    val strMeal: String = "",
+    var strMeal: String = "",
 
     @ColumnInfo(name = "strMealThumb")
-    val strMealThumb: String = "",
+    var strMealThumb: String = "",
 
     @ColumnInfo(name = "isFavorite")
     var isFavorite: Boolean = false
