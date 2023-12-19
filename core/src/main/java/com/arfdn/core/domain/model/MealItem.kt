@@ -8,5 +8,5 @@ data class MealItem(
     val idMeal: String = "",
     val strMeal: String = "",
     val strMealThumb: String = "",
-    val isFavorite: Boolean = false
+    var isFavorite: Boolean = false
 ): Parcelable

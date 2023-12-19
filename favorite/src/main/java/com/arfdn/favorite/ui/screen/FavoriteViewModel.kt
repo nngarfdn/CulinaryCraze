@@ -1,4 +1,4 @@
-package com.arfdn.culinarycraze.ui.screen.home
+package com.arfdn.favorite.ui.screen
 
 import androidx.lifecycle.ViewModel
 import androidx.lifecycle.asLiveData
@@ -10,21 +10,18 @@ import kotlinx.coroutines.flow.MutableStateFlow
 import kotlinx.coroutines.flow.StateFlow
 import kotlinx.coroutines.launch
 
-
-class HomeViewModel(private val mealUseCase: MealUseCase): ViewModel() {
+class FavoriteViewModel(private val mealUseCase: MealUseCase): ViewModel() {
 
     private val _uiState: MutableStateFlow<Resource<List<MealItem>>> = MutableStateFlow(Resource.Loading())
     val uiState: StateFlow<Resource<List<MealItem>>>
         get() = _uiState
 
-
-    fun getAllMeals(area: String){
+    fun getAllFavoriteMeals(){
         viewModelScope.launch {
-            mealUseCase.getAllMeals(area).asLiveData().observeForever {
-                _uiState.value = it
+            mealUseCase.getFavoriteMeals().asLiveData().observeForever {
+                _uiState.value = Resource.Success(it)
             }
         }
     }
-
 
 }

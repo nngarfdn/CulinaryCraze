@@ -3,6 +3,7 @@ package com.arfdn.core.data.remote
 import android.util.Log
 import com.arfdn.core.data.remote.network.ApiResponse
 import com.arfdn.core.data.remote.network.ApiService
+import com.arfdn.core.data.remote.response.DetailMealResponse
 import com.arfdn.core.data.remote.response.MealsResponse
 import kotlinx.coroutines.Dispatchers
 import kotlinx.coroutines.flow.Flow
@@ -16,6 +17,23 @@ class RemoteDataSource(private val apiService: ApiService) {
         return flow {
             try {
                 val response = apiService.getAllMeals(area)
+                if (response.meals.isNotEmpty()) {
+                    emit(ApiResponse.Success(response))
+                } else {
+                    emit(ApiResponse.Empty)
+                }
+            } catch (e: Exception) {
+                emit(ApiResponse.Error(e.toString()))
+                Log.e("RemoteDataSource", e.toString())
+            }
+        }.flowOn(Dispatchers.IO)
+    }
+
+    suspend fun getDetailMeal(idMeal: String): Flow<ApiResponse<DetailMealResponse>> {
+        //get data from remote api
+        return flow {
+            try {
+                val response = apiService.getDetailMeal(idMeal)
                 if (response.meals.isNotEmpty()) {
                     emit(ApiResponse.Success(response))
                 } else {

@@ -6,6 +6,8 @@ import com.arfdn.core.di.networkModule
 import com.arfdn.core.di.repositoryModule
 import com.arfdn.culinarycraze.di.useCaseModule
 import com.arfdn.culinarycraze.di.viewModelModule
+import com.arfdn.favorite.ui.di.useCaseModuleFavorite
+import com.arfdn.favorite.ui.di.viewModelModuleFavorite
 import org.koin.android.ext.koin.androidContext
 import org.koin.android.ext.koin.androidLogger
 import org.koin.core.context.startKoin
@@ -23,7 +25,10 @@ class CulinaryCrazeApp : Application(){
                     networkModule,
                     repositoryModule,
                     useCaseModule,
-                    viewModelModule
+                    viewModelModule,
+                    useCaseModuleFavorite,
+                    viewModelModuleFavorite,
+
                 )
             )
         }
